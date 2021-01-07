@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
   private float xAxis, zAxis;
+  
+  [Range (10, 50)]
   public float speed;
 
   private void Start() {
@@ -15,13 +17,13 @@ public class PlayerController : MonoBehaviour {
   }
 
   private void Walk() {
-    //xAxis = Input.GetAxis("Horizontal");
-    //zAxis = Input.GetAxis("Vertical");
+    xAxis = Input.GetAxis("Horizontal");
+    zAxis = Input.GetAxis("Vertical");
 
-    xAxis = 0.1f;
-    zAxis = 0.1f;
+    Vector3 absoluteMovement = new Vector3(xAxis, 0.0f, zAxis);
+    Quaternion directionCamera = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+    Vector3 relativeMovement = directionCamera * absoluteMovement;
 
-    Vector3 movement = new Vector3(xAxis, 0, zAxis);
-    transform.Translate(movement * speed * Time.deltaTime);
+    transform.Translate(relativeMovement * speed * Time.deltaTime);
   }
 }
