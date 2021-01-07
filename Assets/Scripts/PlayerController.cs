@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
   private Vector3 movement;
   private CharacterController player;
 
-  [Range (10, 30)]
+  [Range (1, 30)]
   public float speed;
 
   private void Start() {
