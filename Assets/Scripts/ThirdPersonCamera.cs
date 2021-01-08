@@ -10,7 +10,7 @@ public class ThirdPersonCamera : MonoBehaviour {
   public float lerpValue;
 
   private void Start() {
-    target = GameObject.FindWithTag("MainCharacterTag").transform;
+    target = GameObject.FindWithTag("PlayerTag").transform;
   }
 
   private void LateUpdate() {

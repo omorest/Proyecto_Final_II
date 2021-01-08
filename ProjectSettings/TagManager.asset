@@ -6,6 +6,8 @@ TagManager:
   tags:
   - OilBarrel
   - MainCharacterTag
+  - Keys
+  - PlayerTag
   layers:
   - Default
   - TransparentFX
