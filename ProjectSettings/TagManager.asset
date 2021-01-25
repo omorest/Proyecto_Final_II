@@ -8,6 +8,8 @@ TagManager:
   - MainCharacterTag
   - Keys
   - PlayerTag
+  - LampControl
+  - TrollTag
   layers:
   - Default
   - TransparentFX
