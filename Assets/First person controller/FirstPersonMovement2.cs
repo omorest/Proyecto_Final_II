@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FirstPersonMovement : MonoBehaviour
+public class FirstPersonMovement2 : MonoBehaviour
 {
     public float speed = 5;
     Vector2 velocity;
