@@ -21,7 +21,7 @@ public class FollowPlayer : MonoBehaviour {
       // rb.AddForce(player.transform.position * 1f * Time.deltaTime);  
       transform.LookAt(player.transform);
       rb.AddForce(transform.forward * 50f);
-
+      GetComponent<Animator>().Play("Run");
     }
   }
 }

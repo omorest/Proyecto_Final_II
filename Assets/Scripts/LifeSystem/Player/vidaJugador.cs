@@ -7,23 +7,30 @@ public class vidaJugador : MonoBehaviour
     public controladorDelegados controlador;
 
     public int vida;
+    public int vidaTotal;
     private bool muerto;
     private int factorVida = 10;
+    public int dañoBala = 25;
 
     void OnEnable()
     {
         controlador.restarVidaJugador += quitarVidaJugador;
+        controlador.sumarVidaJugador += sumarVidaJugador;
+        controlador.sumarDañoJugador += sumarDañoJugador;
     }
 
     void OnDeseable()
     {
         controlador.restarVidaJugador -= quitarVidaJugador;
+        controlador.sumarVidaJugador -= sumarVidaJugador;
+        controlador.sumarDañoJugador -= sumarDañoJugador;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        vida = 1000;
+        vidaTotal = 1000;
+        vida = vidaTotal;
         muerto = false;
     }
 
@@ -32,20 +39,45 @@ public class vidaJugador : MonoBehaviour
     {
         if (vida == 0 && muerto == false)
         {
-            Debug.Log("Has muerto");
             muerto = true;
         }
     }
 
-    private void quitarVidaJugador()
+    private void quitarVidaJugador(int damage)
     {
         if (vida > 0)
             vida--;
-        //Debug.Log("Pierdo vida: " + vida);
+    }
+
+    private void sumarDañoJugador(int sumaDaño)
+    {
+        dañoBala += sumaDaño;
+    }
+
+    private void sumarVidaJugador(int sumaVida)
+    {
+        if (vida + sumaVida <= vidaTotal)
+        {
+            vida += sumaVida;
+        }
+        else
+        {
+            int vidaRestante = vidaTotal - vida;
+
+            if (sumaVida > vidaRestante)
+            {
+                vida += vidaRestante;
+            }
+        }
     }
 
     public int GetVida()
     {
         return vida / factorVida;
+    }
+
+    public int GetDañoBala()
+    {
+        return dañoBala;
     }
 }

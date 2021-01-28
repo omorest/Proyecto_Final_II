@@ -11,6 +11,14 @@ public class Shot : MonoBehaviour
   public float shotRate = 0.5f;
   public float shotRateTime = 0;
 
+  AudioSource fuente;
+  public AudioClip clip;
+
+  void Start()
+  {
+    fuente = GetComponent<AudioSource> ();
+  }
+
   // Update is called once per frame
   void Update() {
     if (Input.GetButtonDown("Fire1")) { //botón izquiero del botón 
@@ -21,6 +29,8 @@ public class Shot : MonoBehaviour
           newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
 
           shotRateTime = Time.time + shotRate;
+          fuente.clip = clip;
+          fuente.Play();
 
           Destroy(newBullet, 1.5f);    
         }

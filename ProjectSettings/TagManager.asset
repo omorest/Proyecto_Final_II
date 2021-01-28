@@ -15,6 +15,9 @@ TagManager:
   - GroundCheckTag
   - cubesCounter
   - HidePlayTag
+  - coleccionable
+  - coleccionableBala
+  - bala
   layers:
   - Default
   - TransparentFX
