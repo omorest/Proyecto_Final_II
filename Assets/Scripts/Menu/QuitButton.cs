@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class QuitButton : MonoBehaviour, IGvrPointerHoverHandler {
 
-  private string GAME_SCENE = "Game";
   public GameObject fadeEffect;
   public GameObject hideButton;
   public GameObject otherButton;
