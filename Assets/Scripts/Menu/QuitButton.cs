@@ -33,4 +33,3 @@ public class QuitButton : MonoBehaviour, IGvrPointerHoverHandler {
     GetComponent<Renderer>().material.color = Color.blue;
   }
 }
-
