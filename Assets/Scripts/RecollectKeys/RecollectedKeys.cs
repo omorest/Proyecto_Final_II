@@ -17,6 +17,6 @@ public class RecollectedKeys : MonoBehaviour {
   }
 
   public void sumKeysRecollected() {
-    numberOfKeysRecollected ++;
+    numberOfKeysRecollected++;
   }
 }
