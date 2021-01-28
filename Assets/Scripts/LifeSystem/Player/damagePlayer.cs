@@ -8,7 +8,6 @@ public class damagePlayer : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        print("HOLAA");
         if (collision.gameObject.name == "Troll")
         {
             controlador.LanzarVidaJugador();

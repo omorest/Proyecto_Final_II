@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeControl : MonoBehaviour
+public class FadeControl2 : MonoBehaviour
 {
 
     public GameObject fadeEffect;

@@ -13,6 +13,8 @@ TagManager:
   - CameraRig
   - PlayerBodyTag
   - GroundCheckTag
+  - cubesCounter
+  - HidePlayTag
   layers:
   - Default
   - TransparentFX
