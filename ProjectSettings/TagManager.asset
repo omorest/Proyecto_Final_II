@@ -11,6 +11,8 @@ TagManager:
   - LampControl
   - TrollTag
   - CameraRig
+  - PlayerBodyTag
+  - GroundCheckTag
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Ground
   - 
   - 
   - 
