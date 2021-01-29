@@ -7,6 +7,7 @@ public class FollowPlayer : MonoBehaviour {
   private GameObject player;
   public float distanceBetweenObjects = 3f;
   public Rigidbody rb;
+
   // Transform transform;
   void Start() {
     rb = GetComponent<Rigidbody>();

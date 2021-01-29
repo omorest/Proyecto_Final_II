@@ -7,7 +7,7 @@ public class vidaTroll : MonoBehaviour
     public controladorDelegados controlador;
 
     public int vida;
-    private bool delete;
+    private bool dead;
     private int factorVida = 100;
 
     void OnEnable()
@@ -23,21 +23,25 @@ public class vidaTroll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vida = 1000;
-        delete = false;
+        vida = 100;
+        dead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (vida <= 0 && delete == false)
+        if (vida <= 0 && dead == false)
         {
             Debug.Log("El troll ha muerto");
             GetComponent<Animator>().Play("Die");
 
             // Destroy(gameObject);
-            delete = true;
+            dead = true;
         }
+    }
+
+    public bool IsDead() {
+        return dead;
     }
 
     private void quitarVidaTroll(int daño)
