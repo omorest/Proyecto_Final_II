@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GetCollectable : MonoBehaviour {
   private DelegateController controller;
@@ -20,6 +21,12 @@ public class GetCollectable : MonoBehaviour {
     powerIncrease = 25;
   }
 
+  IEnumerator LoadWinScene() {
+    yield return new WaitForSeconds(6f);
+    string WIN_SCENE = "Win";
+    SceneManager.LoadScene(WIN_SCENE);
+  }
+  
   void OnCollisionEnter(Collision collision) {
     if (collision.gameObject.tag == "IncreaseLifeTag") {
       audioSource.clip = itemSound;
@@ -42,12 +49,12 @@ public class GetCollectable : MonoBehaviour {
       controller.PlayerPicksUpGrenade();
     }
 
-    // Revisar
-    if (collision.gameObject.name == "Estrella") {
+    if (collision.gameObject.tag == "StarTag") {
       audioSource.clip = starSound;
       audioSource.Play();
 
       Destroy(collision.gameObject);
+      StartCoroutine(LoadWinScene());
     }
   }
 }

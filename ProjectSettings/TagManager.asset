@@ -27,6 +27,7 @@ TagManager:
   - IncreaseLifeTag
   - GrenadeTag
   - CaveTag
+  - StarTag
   layers:
   - Default
   - TransparentFX

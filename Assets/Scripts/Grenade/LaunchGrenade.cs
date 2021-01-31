@@ -40,7 +40,6 @@ public class LaunchGrenade : MonoBehaviour {
   }
 
   void Update() {
-    print(hasGrenade);
     if (hasGrenade > 0) {
       if (doorIsDestroyed == false) {
         gunObjectToDisable.SetActive(false);

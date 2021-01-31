@@ -6,10 +6,10 @@ public class FinalDragonLifeSystem : MonoBehaviour {
   private DelegateController controller;
   public GameObject star;
 
-  private int INITIAL_LIFE = 1000;
+  private int INITIAL_LIFE = 1500;
   private int LIFE_FACTOR = 100;
 
-  private int life;
+  public int life;
   private bool isDead;
 
   private void OnEnable() {
@@ -21,10 +21,10 @@ public class FinalDragonLifeSystem : MonoBehaviour {
   }
 
   private void Awake() {
-      controller = GameObject.FindWithTag("CameraRigTag").GetComponent<DelegateController>();
+    controller = GameObject.FindWithTag("CameraRigTag").GetComponent<DelegateController>();
 
-      life = INITIAL_LIFE;
-      isDead = false;
+    life = INITIAL_LIFE;
+    isDead = false;
   }
 
   private void UpdateIfDead() {

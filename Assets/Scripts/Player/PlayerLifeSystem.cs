@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLifeSystem : MonoBehaviour {
   private DelegateController controller;
@@ -22,6 +23,12 @@ public class PlayerLifeSystem : MonoBehaviour {
     isDead = false;
   }
 
+  IEnumerator LoadGameOverScene() {
+    yield return new WaitForSeconds(1f);
+    string GAME_OVER_SCENE = "GameOver";
+    SceneManager.LoadScene(GAME_OVER_SCENE);
+  }
+
   void OnEnable() {
     controller.getPlayerDamageEvent += DecreaseLife;
     controller.getMoreLifeEvent += IncreaseLife;
@@ -41,7 +48,7 @@ public class PlayerLifeSystem : MonoBehaviour {
   void Update() {
     UpdateIfDead();
     if (isDead) { 
-      print("MORISTE");
+      StartCoroutine(LoadGameOverScene());
     }
   }
 
