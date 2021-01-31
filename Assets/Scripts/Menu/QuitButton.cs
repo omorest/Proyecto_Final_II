@@ -9,11 +9,13 @@ public class QuitButton : MonoBehaviour, IGvrPointerHoverHandler {
   public GameObject fadeEffect;
   public GameObject hideButton;
   public GameObject otherButton;
+  public GameObject title;
 
   IEnumerator ChangeAfter2SecondsCoroutine() {
     fadeEffect.SetActive(true);
     hideButton.SetActive(true);
     Destroy(otherButton);
+    Destroy(title);
     yield return new WaitForSeconds(2);
     Application.Quit();
   }

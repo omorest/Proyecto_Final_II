@@ -5,21 +5,19 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
-public class PlayButton : MonoBehaviour, IGvrPointerHoverHandler {
+public class MenuButton : MonoBehaviour, IGvrPointerHoverHandler {
 
-  private string INSTRUCTIONS_SCENE = "Instructions";
+  private string MENU_SCENE = "Menu";
   public GameObject fadeEffect;
   public GameObject hideButton;
-  public GameObject otherButton;
   public GameObject title;
 
   IEnumerator ChangeAfter2SecondsCoroutine() {
     fadeEffect.SetActive(true);
     hideButton.SetActive(true);
-    Destroy(otherButton);
     Destroy(title);
     yield return new WaitForSeconds(2);
-    SceneManager.LoadScene(INSTRUCTIONS_SCENE);
+    SceneManager.LoadScene(MENU_SCENE);
   }
 
   public void Start() {
