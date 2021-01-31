@@ -6,7 +6,7 @@ public class FinalDragonLifeSystem : MonoBehaviour {
   private DelegateController controller;
   public GameObject star;
 
-  private int INITIAL_LIFE = 1500;
+  private int INITIAL_LIFE = 400;
   private int LIFE_FACTOR = 100;
 
   public int life;

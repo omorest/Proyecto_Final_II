@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragonLifeSystem : MonoBehaviour {
   private DelegateController controller;
 
-  private int INITIAL_LIFE = 250;
+  private int INITIAL_LIFE = 100;
   private int LIFE_FACTOR = 100;
   
   private int life;
