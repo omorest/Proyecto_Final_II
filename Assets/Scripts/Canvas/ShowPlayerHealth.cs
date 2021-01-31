@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class ShowPlayerHealth : MonoBehaviour {
   public Image health;
-  private vidaJugador player;
+  private PlayerLifeSystem playerLifeSystem;
   
   private void Start() {
-    player = GameObject.FindWithTag("PlayerTag").GetComponent<vidaJugador>();
+    playerLifeSystem = GameObject.FindWithTag("PlayerTag").GetComponent<PlayerLifeSystem>();
   }
 
   private void Update() {
-    health.fillAmount = player.GetVida() / 100.0f;
+    health.fillAmount = playerLifeSystem.GetLife() / 100.0f;
   }
 }

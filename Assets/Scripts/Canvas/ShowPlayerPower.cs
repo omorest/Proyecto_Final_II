@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class ShowPlayerPower : MonoBehaviour {
   public Image power;
-  private vidaJugador player;
+  private PlayerLifeSystem player;
   
   private void Start() {
-    player = GameObject.FindWithTag("PlayerTag").GetComponent<vidaJugador>();
+    player = GameObject.FindWithTag("PlayerTag").GetComponent<PlayerLifeSystem>();
   }
 
   private void Update() {
-    power.fillAmount = player.GetDañoBala() / 100.0f;
+    power.fillAmount = player.GetBulletDamage() / 100.0f;
   }
 }

@@ -9,7 +9,6 @@ TagManager:
   - Keys
   - PlayerTag
   - LampControl
-  - TrollTag
   - CameraRig
   - PlayerBodyTag
   - GroundCheckTag
@@ -21,6 +20,13 @@ TagManager:
   - granada
   - dragon
   - rocaEntrada
+  - CameraRigTag
+  - BulletTag
+  - DragonTag
+  - IncreasePowerTag
+  - IncreaseLifeTag
+  - GrenadeTag
+  - CaveTag
   layers:
   - Default
   - TransparentFX

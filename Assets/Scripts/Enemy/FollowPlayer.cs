@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
 
+  private float MAX_DISTANCE_WITH_PLAYER = 8f;
+  private float FORCE = 10000f;
+
   private GameObject player;
-  public float distanceBetweenObjects = 3f;
   public Rigidbody rb;
 
-  // Transform transform;
-  void Start() {
+  private void Start() {
     rb = GetComponent<Rigidbody>();
-    player = GameObject.Find("Player");
+    player = GameObject.FindWithTag("PlayerTag");
+  }
+
+  private bool CheckIfAlive() {
+    DragonLifeSystem dragonLifeSystem = GetComponent<DragonLifeSystem>();
+    return !dragonLifeSystem.IsDead();
   }
 
   void Update() {  
-    float distance = Vector3.Distance(transform.position, player.transform.position);
+    float currentDistance = Vector3.Distance(transform.position, player.transform.position);
     
-    if (distance <= distanceBetweenObjects) {
-      // Vector3 direction = transform.position - player.transform.position;  
-      // rb.AddForce(player.transform.position * 1f * Time.deltaTime);  
+    if ((CheckIfAlive()) && (currentDistance <= MAX_DISTANCE_WITH_PLAYER)) {
       transform.LookAt(player.transform);
-      rb.AddForce(transform.forward * 50f);
+      rb.AddForce(transform.forward * FORCE);
       GetComponent<Animator>().Play("Run");
     }
   }
