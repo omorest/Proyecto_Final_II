@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragonLifeSystem : MonoBehaviour {
+public class FinalDragonLifeSystem : MonoBehaviour {
   private DelegateController controller;
+  public GameObject star;
 
-  private int INITIAL_LIFE = 250;
+  private int INITIAL_LIFE = 1000;
   private int LIFE_FACTOR = 100;
-  
+
   private int life;
   private bool isDead;
 
-  void OnEnable() {
+  private void OnEnable() {
     controller.getEnemyDamageEvent += DecreaseLife;
   }
 
-  void OnDeseable() {
+  private void OnDeseable() {
     controller.getEnemyDamageEvent -= DecreaseLife;
   }
 
-  void Awake() {
-    controller = GameObject.FindWithTag("CameraRigTag").GetComponent<DelegateController>();
-    life = INITIAL_LIFE;
-    isDead = false;
+  private void Awake() {
+      controller = GameObject.FindWithTag("CameraRigTag").GetComponent<DelegateController>();
+
+      life = INITIAL_LIFE;
+      isDead = false;
   }
 
   private void UpdateIfDead() {
@@ -33,10 +35,11 @@ public class DragonLifeSystem : MonoBehaviour {
     isDead = true;
     GetComponent<Animator>().Play("Die");
     yield return new WaitForSeconds(3);
+    star.SetActive(true);
     gameObject.SetActive(false);
   }
 
-  void Update() {
+  private void Update() {
     UpdateIfDead();
     if (isDead) {
       StartCoroutine(Die());
@@ -51,5 +54,9 @@ public class DragonLifeSystem : MonoBehaviour {
     if ((!isDead) && (gameObject.name == gameObjectName)) {
       life -= damageReceived;
     }
+  }
+
+  public int getVida() {
+      return life / LIFE_FACTOR;
   }
 }

@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour {
+public class FinalDragonFollowPlayer : MonoBehaviour {
 
   private float MAX_DISTANCE_WITH_PLAYER = 8f;
   private float FORCE = 150000f;
@@ -16,8 +16,8 @@ public class FollowPlayer : MonoBehaviour {
   }
 
   private bool CheckIfAlive() {
-    DragonLifeSystem dragonLifeSystem = GetComponent<DragonLifeSystem>();
-    return !dragonLifeSystem.IsDead();
+    FinalDragonLifeSystem finalDragonLifeSystem = GetComponent<FinalDragonLifeSystem>();
+    return !finalDragonLifeSystem.IsDead();
   }
 
   void Update() {  
