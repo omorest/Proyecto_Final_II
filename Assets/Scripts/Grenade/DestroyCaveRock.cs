@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class DestroyCaveRock : MonoBehaviour {
   private DelegateController controller;
-  private GameObject cave;
+  public GameObject cave;
 
   private void Awake() {
     controller = GameObject.FindWithTag("CameraRigTag").GetComponent<DelegateController>();
-    cave = GameObject.FindWithTag("CaveTag");
   }
   
   public void Destroy() {

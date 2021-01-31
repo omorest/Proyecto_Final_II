@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour {
 
   private float MAX_DISTANCE_WITH_PLAYER = 8f;
-  private float FORCE = 10000f;
+  private float FORCE = 150000f;
 
   private GameObject player;
   public Rigidbody rb;
