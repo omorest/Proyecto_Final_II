@@ -26,7 +26,7 @@ public class MenuButton : MonoBehaviour, IGvrPointerHoverHandler {
 
   public void OnGvrPointerHover(PointerEventData eventData) {
     GetComponent<Renderer>().material.color = Color.red;
-    if (Input.GetKeyDown(KeyCode.Return)) {
+    if (Input.GetButtonDown("Fire1")) {
       StartCoroutine(ChangeAfter2SecondsCoroutine());
     }
   }
