@@ -49,7 +49,6 @@ public class DelegateController : MonoBehaviour {
   }
 
   public void PlayerPicksUpGrenade() {
-    print("LO HAS LLAMADO");
     if (pickGrenadeEvent != null) {
       pickGrenadeEvent();
     }

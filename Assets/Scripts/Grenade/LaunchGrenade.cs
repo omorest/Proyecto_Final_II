@@ -5,11 +5,11 @@ using UnityEngine;
 public class LaunchGrenade : MonoBehaviour {
   private DelegateController controlador;
 
-  public float LAUNCH_FORCE = 2000f;
+  public float LAUNCH_FORCE = 200f;
 
   public GameObject grenadeObject;
   public GameObject gunObjectToDisable;
-  // public GameObject grenadeToActivate;
+  public GameObject grenadeToActivate;
   private GameObject gunScriptToDisable;
 
   private int hasGrenade = 0;
@@ -31,7 +31,6 @@ public class LaunchGrenade : MonoBehaviour {
   }
 
   void PickGrenade() {
-    print("HAYYYY");
     hasGrenade += 1;
   }
 
@@ -45,14 +44,13 @@ public class LaunchGrenade : MonoBehaviour {
     if (hasGrenade > 0) {
       if (doorIsDestroyed == false) {
         gunObjectToDisable.SetActive(false);
-        // grenadeToActivate.SetActive(true);
+        grenadeToActivate.SetActive(true);
 
         activatedGrenade = true;
         gunScriptToDisable = GameObject.FindWithTag("PlayerTag");
         gunScriptToDisable.GetComponent<Shot>().enabled = false;
         
         if (Input.GetButtonDown("Fire1")) {
-          print("AVERRRRRRRRRRRRRRRRRRRRR");
           Launch();
         }
       }
@@ -60,7 +58,7 @@ public class LaunchGrenade : MonoBehaviour {
     } else {
       if (activatedGrenade == true) {
         gunObjectToDisable.SetActive(true);
-        // grenadeToActivate.SetActive(false);
+        grenadeToActivate.SetActive(false);
         
         gunScriptToDisable = GameObject.FindWithTag("PlayerTag");
         gunScriptToDisable.GetComponent<Shot>().enabled = true;
@@ -70,14 +68,11 @@ public class LaunchGrenade : MonoBehaviour {
 
   void Launch() {
     GameObject grenade = Instantiate(grenadeObject, transform.position, transform.rotation);
-    // print(grenade);
-    print("------------------------LANZAR");
 
-    // print(hasGrenade);
-    // Rigidbody rb = grenade.GetComponent<Rigidbody>();
-    // rb.AddForce(transform.forward * LAUNCH_FORCE, ForceMode.VelocityChange);
+    Rigidbody rb = grenade.GetComponent<Rigidbody>();
+    rb.AddForce(transform.forward * LAUNCH_FORCE, ForceMode.VelocityChange);
 
-    // grenade.GetComponent<GrenadeController>().enabled = true;
-    // hasGrenade -= 0;
+    grenade.GetComponent<GrenadeController>().enabled = true;
+    hasGrenade -= 1;
   }
 }
