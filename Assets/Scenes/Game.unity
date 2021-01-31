@@ -2354,8 +2354,9 @@ GameObject:
   - component: {fileID: 218394810}
   - component: {fileID: 218394809}
   - component: {fileID: 218394813}
+  - component: {fileID: 218394812}
   m_Layer: 0
-  m_Name: fishing_boat
+  m_Name: Boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2422,6 +2423,19 @@ Transform:
   m_Father: {fileID: 665105409}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -81.734, z: 0}
+--- !u!65 &218394812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218394808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10984573, y: 0.3, z: 0.09075607}
+  m_Center: {x: 0.0011067694, y: 0.09, z: 0.0827688}
 --- !u!65 &218394813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2433,8 +2447,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.22195287, y: 0.1, z: 0.69}
-  m_Center: {x: 0, y: 0.02, z: 0}
+  m_Size: {x: 0.20171355, y: 0.13082339, z: 0.69}
+  m_Center: {x: -0.0019367888, y: 0.035411797, z: -5.4151027e-11}
 --- !u!1 &237236266
 GameObject:
   m_ObjectHideFlags: 0
